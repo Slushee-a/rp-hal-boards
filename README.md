@@ -367,6 +367,17 @@ RP2040 chip according to how it is connected up on the board.
 [Waveshare RP2040 LCD 0.96"]: https://www.waveshare.com/wiki/RP2040-LCD-0.96
 [waveshare-rp2040-lcd-0_96]: https://github.com/rp-rs/rp-hal-boards/tree/main/boards/waveshare-rp2040-lcd-0-96
 
+### [picoboy] - Board Support for the [Picoboy]
+
+You should include this crate if you are writing code that you want to run on
+a [Picoboy] - a powerful mini handheld developed by Jan Schulz
+
+This crate includes the [rp2040-hal], but also configures each pin of the
+RP2040 chip according to how it is connected up on the board.
+
+[Picoboy]: https://bridle.tiac-systems.net/doc/latest/bridle/boards/arm/picoboy/doc/index.html
+[picoboy]: https://github.com/rp-rs/rp-hal-boards/tree/main/boards/picoboy
+
 <!-- PROGRAMMING -->
 ## Programming
 
