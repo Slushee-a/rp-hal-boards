@@ -10,8 +10,7 @@ use bsp::hal::{
 use bsp::{entry, XOSC_CRYSTAL_FREQ};
 use picoboy as bsp;
 
-use embedded_hal::digital::v2::OutputPin;
-use embedded_hal::PwmPin;
+use embedded_hal::{digital::OutputPin, pwm::SetDutyCycle};
 
 use defmt_rtt as _;
 use panic_halt as _;
@@ -59,8 +58,8 @@ fn main() -> ! {
 
     let buzzer = &mut pwm.channel_b;
     buzzer.output_to(pins.buzzer);
-    buzzer.set_duty(567); // 50% duty cycle
-    buzzer.disable(); // Boot without making noise
+    buzzer.set_duty_cycle_percent(50).unwrap(); // 50% duty cycle
+    buzzer.set_enabled(false); // Boot without making noise
 
     loop {
         red_led.set_high().unwrap();
@@ -70,11 +69,11 @@ fn main() -> ! {
         delay.delay_ms(500);
 
         green_led.set_high().unwrap();
-        buzzer.enable();
+        buzzer.set_enabled(true);
         delay.delay_ms(500);
 
         red_led.set_low().unwrap();
-        buzzer.disable();
+        buzzer.set_enabled(true);
         delay.delay_ms(500);
 
         yellow_led.set_low().unwrap();

@@ -41,6 +41,10 @@ ws2812-pio.workspace = true
 defmt.workspace = true
 defmt-rtt.workspace = true
 
+sh1106 = { version = "0.5.0", git = "https://github.com/techmccat/sh1106.git", rev = "637f5ed" }
+accelerometer = "0.12.0"
+stk8ba58 = "1.0.2"
+
 [features]
 # This is the set of features we enable by default
 default = ["boot2", "rt", "critical-section-impl", "rom-func-cache"]

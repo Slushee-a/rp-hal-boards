@@ -295,7 +295,8 @@ hal::bsp_pins!(
         }
     },
 
-    /// GPIO 16 is not connected and supports following functions:
+    /// GPIO 16 is not connected because the OLED display doesn't replay with any data.
+    /// It still is necessary for the SPI port, so it supports following functions:
     ///
     /// | Function     | Alias with applied function |
     /// |--------------|-----------------------------|
@@ -348,7 +349,7 @@ hal::bsp_pins!(
     /// | `PIO0`       | [crate::Gp19Pio0]           |
     /// | `PIO1`       | [crate::Gp19Pio1]           |
     Gpio19 {
-        name: oled_din,
+        name: oled_tx,
         aliases: {
             /// SPI Function alias for pin [crate::Pins::gpio19].
             FunctionSpi, PullNone: Gp19Spi0Tx,
@@ -441,3 +442,6 @@ hal::bsp_pins!(
 );
 
 pub const XOSC_CRYSTAL_FREQ: u32 = 12_000_000;
+
+pub const OLED_WIDTH: u32 = 128;
+pub const OLED_HEIGHT: u32 = 64;
